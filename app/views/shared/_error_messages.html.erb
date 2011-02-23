@@ -1,0 +1,9 @@
+<% if resource.errors.any? %>
+  <div class="flash">
+    <div class="message error">
+      <% resource.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

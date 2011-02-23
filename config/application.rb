@@ -39,8 +39,11 @@ module Bl
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    # Configure devise to use different layout sign.html.erb
     config.to_prepare do
       Devise::SessionsController.layout "sign"
+      Devise::RegistrationsController.layout "sign"
+      Devise::PasswordsController.layout "sign"
     end
   end
 end

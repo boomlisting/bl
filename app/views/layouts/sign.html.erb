@@ -2,14 +2,30 @@
 <html>
 <head>
   <title>Boom Listing</title>
-  <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/warehouse/style", "web-app-theme/override", :cache => false %>
+  <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/warehouse/style", "web-app-theme/override" %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <div id="container">
+    <div id="header">
+      <h1><a href="/">Boom Listing</a></h1>
+
+      <div id="main-navigation">
+        <ul class="wat-cf">
+          <li class="first"/>
+        </ul>
+      </div>
+    </div>
     <div id="box">
       <%= yield %>
     </div>
+    <div id="footer">
+      <div class="block">
+        <p>Copyright &copy; <%= Time.now.year %> Boom Listing.</p>
+      </div>
+    </div>
   </div>
+  <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

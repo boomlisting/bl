@@ -1,14 +1,13 @@
-<h1>Boom Listing</h1>
 <div id="block-login" class="block">
   <h2>Sign in</h2>
   <div class="content login">
+
     <div class="flash">
 <% flash.each do |type, message| %>
-      <div class="message #{type}">
-        <p><%= message %></p>
-      </div>
+      <%= content_tag(:div, message, :class => "message #{type}") %>
 <% end %>
     </div>
+
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form login" }) do |f| %>
     <div class="group wat-cf">
       <div class="left"><%= f.label :email, :class => "label right" %></div>
@@ -27,7 +26,7 @@
       <div class="right">
         <button class="button" type="submit">
           <%= image_tag "web-app-theme/icons/key.png" %>
-          Login
+          Sign in
         </button>
       </div>
     </div>

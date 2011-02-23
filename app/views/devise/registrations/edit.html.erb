@@ -1,25 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="block-login" class="block">
+  <h2><%= resource_name.to_s.humanize %> Profile</h2>
+  <div class="content login">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= render "shared/error_messages" %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form login", :method => :put }) do |f| %>
+    <div class="group wat-cf">
+      <div class="left"><%= f.label :name, :class => "label right" %></div>
+      <div class="right"><%= f.text_field :name, :class => "text_field" %></div>
+    </div>
+    <div class="group wat-cf">
+      <div class="left"><%= f.label :email, :class => "label right" %></div>
+      <div class="right"><%= f.text_field :email, :class => "text_field" %></div>
+    </div>
+    <div class="group wat-cf">
+      <div class="left"><%= f.label :current_password, :class => "label right" %></div>
+      <div class="right"><%= f.password_field :current_password, :class => "text_field" %><i>Your current password to confirm your changes</i></div>
+    </div>
 
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
+    <div class="group wat-cf">
+      <div class="left"><%= f.label :password, "New password", :class => "label right" %></div>
+      <div class="right"><%= f.password_field :password, :value => "", :class => "text_field" %><i>Leave blank if you don't want to change password</i></div>
+    </div>
+    <div class="group wat-cf">
+      <div class="left"><%= f.label :password_confirmation, "New password confirmation", :class => "label right" %></div>
+      <div class="right"><%= f.password_field :password_confirmation, :class => "text_field" %><i>Type the new password again if you provide it above</i></div>
+    </div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
-
-  <p><%= f.submit "Update" %></p>
+    <div class="group wat-cf">
+      <div class="right">
+        <button class="button" type="submit">
+          <%= image_tag "web-app-theme/icons/application_edit.png" %>
+          Update
+        </button>
+        or
+        <%= link_to "Cancel", :back %>
+      </div>
+    </div>
 <% end %>
+  </div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+  <h2>Terminate account</h2>
+  <div class="content login">
+    Unhappy? <%= link_to "Delete my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+  </div>
+</div>
