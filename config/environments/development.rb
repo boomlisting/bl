@@ -24,7 +24,21 @@ Bl::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  # Set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # These options are only needed if :smtp delivery method is chosen
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "boomlisting.heroku.com",
+    :authentication => "plain", #:login,
+    :user_name => "admin@boomlisting.com",
+    :password => "bladmin",
+    :enable_starttls_auto => true
+  }
 
   # Devise default url options for development environment
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

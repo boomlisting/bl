@@ -14,7 +14,7 @@
         <ul class="wat-cf">
 <% if user_signed_in? %>
           <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
-          <li><%= link_to t("web-app-theme.profile", :default => "#{current_user.name}"), edit_user_registration_path %></li>
+          <li><%= link_to t("web-app-theme.profile", :default => "#{current_user.name} Profile"), edit_user_registration_path %></li>
           <li><%= link_to t("web-app-theme.logout", :class => "logout", :default => "Sign out"), destroy_user_session_path %></li>
 <% else %>
           <li><%= link_to t("web-app-theme.login", :default => "Sign in"), new_user_session_path %></li>

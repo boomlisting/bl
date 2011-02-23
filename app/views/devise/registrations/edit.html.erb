@@ -34,7 +34,7 @@
           Update
         </button>
         or
-        <%= link_to "Cancel", :back %>
+        <%= link_to "Cancel", session[:return_to] %> <!-- session[:return_to] || url_for(:back) -->
       </div>
     </div>
 <% end %>
