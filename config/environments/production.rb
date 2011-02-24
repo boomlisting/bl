@@ -48,5 +48,5 @@ Bl::Application.configure do
   config.active_support.deprecation = :notify
 
   # Devise default url options for development environment
-  config.action_mailer.default_url_options = { :host => 'http://boomlisting.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'boomlisting.heroku.com' }
 end
