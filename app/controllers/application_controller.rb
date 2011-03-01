@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 private
 
   def store_location
-    session[:return_to] = request.request_uri # request.request_uri # request.env['HTTP_REFERER']
+    session[:return_to] =  request.env['HTTP_REFERER'] # request.request_uri # request.env['HTTP_REFERER']
   end
 end
