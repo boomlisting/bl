@@ -13,12 +13,25 @@
       <div id="user-navigation">
         <ul class="wat-cf">
 <% if user_signed_in? %>
-          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
-          <li><%= link_to t("web-app-theme.profile", :default => "#{current_user.name} Profile"), edit_user_registration_path %></li>
-          <li><%= link_to t("web-app-theme.logout", :class => "logout", :default => "Sign out"), destroy_user_session_path %></li>
+  <% unless current_user.name.empty? %>
+          <li><%= t("web-app-theme.welcome", :default => "Welcome #{current_user.name}") %> (<%= link_to t("web-app-theme.location", :default => "Riverside, CA") %>)</li>
+  <% end %>
+
+          <li><%= link_to t("web-app-theme.profile", :default => "Profile"), edit_user_registration_path %></li>
+          <li><%= link_to t("web-app-theme.signout", :class => "logout", :default => "Sign out"), destroy_user_session_path %></li>
+          <li><%= link_to t("web-app-theme.howitworks", :default => "How it works"), "#" %></li>
+          <br/>
+          <li>
+            <input type="text" size="25" value="barcode, search term, ...">
+          </li>
+          <li><%= link_to t("web-app-theme.search", :default => "Search"), "#" %></li>
+          <li><%= link_to t("web-app-theme.notifications", :default => "Notifications"), "#" %></li>
+          <li><%= link_to t("web-app-theme.watchlist", :default => "Watch list"), "#" %></li>
+          <li><%= link_to t("web-app-theme.bi", :default => "My BIs"), "#" %></li>
 <% else %>
-          <li><%= link_to t("web-app-theme.login", :default => "Sign in"), new_user_session_path %></li>
+          <li><%= link_to t("web-app-theme.signin", :default => "Sign in"), new_user_session_path %></li>
           <li><%= link_to t("web-app-theme.signup", :default => "Create an account"), new_user_registration_path %></li>
+          <li><%= link_to t("web-app-theme.howitworks", :default => "How it works"), "#" %></li>
 <% end %>
         </ul>
       </div>
